@@ -58,6 +58,7 @@ BreakPointSort <- function(vec){
       # We recalculate the descending parts
       a <- IndicateAscending(v)
       d_values <- v[which(a %in% 0)]
+      dis <- dis + 1
     }
     # If we only have one descending element and only the sorted path is in front
     # of it we must reverse everything between FindSorted(v) and the las bp
@@ -66,6 +67,7 @@ BreakPointSort <- function(vec){
       # We recalculate the descending parts
       a <- IndicateAscending(v)
       d_values <- v[which(a %in% 0)]
+      dis <- dis + 1
     }
     #print(paste("d_values :", toString(d_values)))
     # Take the index of the min value in the descending parts
@@ -86,6 +88,13 @@ v <- c(4,5,3,2,1,6,7,8)
 s <- BreakPointSort(v)
 
 
+# Collision cases
+# No descending vector
+v<- c(1,2,5,6,3,4,7,8)
+s <- BreakPointSort(v)
 
+# Only one descending element after sorted part
+v <- c(1,2,3,4,8,5,6,7)
+s <- BreakPointSort(v)
 
 
